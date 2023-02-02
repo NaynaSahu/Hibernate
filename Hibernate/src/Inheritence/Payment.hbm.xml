@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 7, 2023 3:01:20 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="Inheritence.Payment" table="PAYMENT">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <discriminator column="Payament_Type" type="string" ></discriminator>
+        <property name="amount" type="float">
+            <column name="AMOUNT" />
+        </property>
+        <property name="paymentType" type="java.lang.String">
+            <column name="PAYMENTTYPE" />
+        </property>
+    </class>
+</hibernate-mapping>

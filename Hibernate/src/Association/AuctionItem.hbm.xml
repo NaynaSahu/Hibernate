@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 3, 2023 8:03:06 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="Association.AuctionItem" table="AUCTIONITEM">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" />
+        </property>
+        
+        <!-- The column name of association object and the foriegn key should be same in this case it is "ITEMID" -->
+        <set name="bid" table="BID" > <!-- cascade is used to make changes in all the associated table --> 
+            <key>
+                <column name="ITEMID" />
+            </key>
+            <one-to-many class="Association.Bid" />
+        </set>
+    </class>
+</hibernate-mapping>
